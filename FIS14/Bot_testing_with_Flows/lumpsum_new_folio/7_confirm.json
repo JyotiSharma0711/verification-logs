@@ -1,7 +1,7 @@
 {
   "context": {
     "domain": "ONDC:FIS14",
-    "action": "select",
+    "action": "confirm",
     "location": {
       "country": {
         "code": "IND"
@@ -9,27 +9,30 @@
       "city": {
         "code": "*"
       }
-
-      
     },
     "version": "2.0.0",
     "bap_id": "ondc-wrapper.ppreciate.in",
     "bap_uri": "https://ondc-wrapper.ppreciate.in/v1/webhook",
     "transaction_id": "8b901fdd-f640-4800-a8c6-6f218152c431",
-    "message_id": "3c1d6c7f-15d7-47f1-ae16-febb00e1d822",
-    "timestamp": "2024-09-16T22:43:18.657Z",
+    "message_id": "3c1d6c7f-15d7-47f1-ae16-febb00e1d824",
+    "timestamp": "2024-09-16T22:48:40.337Z",
     "ttl": "PT10M",
     "bpp_id": "api.preprod.cybrilla.com",
     "bpp_uri": "https://api.preprod.cybrilla.com/ondc/"
   },
   "message": {
     "order": {
+      "id": "mfp_47d7ade994b341448cf319b66d9d1c73",
+      "status": "CREATED",
       "provider": {
         "id": "23"
       },
       "items": [
         {
           "id": "23",
+          "fulfillment_ids": [
+            "4540"
+          ],
           "quantity": {
             "selected": {
               "measure": {
@@ -37,7 +40,10 @@
                 "unit": "INR"
               }
             }
-          }
+          },
+          "payment_ids": [
+            "pay_1d21a7299c554082b3f9f2ee54ea4abc"
+          ]
         }
       ],
       "fulfillments": [
@@ -47,6 +53,10 @@
           "customer": {
             "person": {
               "id": "pan:ABCPQ3751Z"
+            },
+            "contact": {
+              "phone": "9731885956",
+              "email": "padma@gmail.com"
             }
           },
           "agent": {
@@ -62,6 +72,36 @@
               ]
             }
           }
+        }
+      ],
+      "payments": [
+        {
+          "id": "pay_1d21a7299c554082b3f9f2ee54ea4abc",
+          "collected_by": "BPP",
+          "type": "PRE-FULFILLMENT",
+          "params": {
+            "amount": "5000",
+            "currency": "INR",
+            "source_bank_code": "ICIC0003428",
+            "source_bank_account_number": "25802580251193"
+          },
+          "tags": [
+            {
+              "display": true,
+              "descriptor": {
+                "name": "Payment Method",
+                "code": "PAYMENT_METHOD"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "MODE"
+                  },
+                  "value": "NETBANKING"
+                }
+              ]
+            }
+          ]
         }
       ],
       "tags": [
@@ -87,16 +127,31 @@
               "value": "true"
             }
           ]
-        }
-      ],
-      "xinput": {
-        "form": {
-          "id": "application_form"
         },
-        "form_response": {
-          "submission_id": "db8be245-d7ea-46a9-9439-2689f2f5b83a"
+        {
+          "display": false,
+          "descriptor": {
+            "name": "BPP Terms of Engagement",
+            "code": "BPP_TERMS"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "name": "Static Terms (Transaction Level)",
+                "code": "STATIC_TERMS"
+              },
+              "value": "https://api.preprod.cybrilla.com/ondc//bpp_terms"
+            },
+            {
+              "descriptor": {
+                "name": "Offline Contract",
+                "code": "OFFLINE_CONTRACT"
+              },
+              "value": "true"
+            }
+          ]
         }
-      }
+      ]
     }
   }
 }

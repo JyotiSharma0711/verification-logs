@@ -1,7 +1,7 @@
 {
   "context": {
     "domain": "ONDC:FIS14",
-    "action": "select",
+    "action": "update",
     "location": {
       "country": {
         "code": "IND"
@@ -9,59 +9,47 @@
       "city": {
         "code": "*"
       }
-
-      
     },
     "version": "2.0.0",
     "bap_id": "ondc-wrapper.ppreciate.in",
     "bap_uri": "https://ondc-wrapper.ppreciate.in/v1/webhook",
-    "transaction_id": "8b901fdd-f640-4800-a8c6-6f218152c431",
-    "message_id": "3c1d6c7f-15d7-47f1-ae16-febb00e1d822",
-    "timestamp": "2024-09-16T22:43:18.657Z",
+    "transaction_id": "8b901fdd-f640-3400-a8c6-6f218152c901",
+    "message_id": "3c1d6c7f-15d7-47f1-1114-febb00e1d123",
+    "timestamp": "2024-09-16T23:49:28.171Z",
     "ttl": "PT10M",
     "bpp_id": "api.preprod.cybrilla.com",
     "bpp_uri": "https://api.preprod.cybrilla.com/ondc/"
   },
   "message": {
+    "update_target": "order.payments",
     "order": {
-      "provider": {
-        "id": "23"
-      },
-      "items": [
+      "id": "mfp_d4648491a51d414f9a509ff11d99bdb3",
+      "payments": [
         {
-          "id": "23",
-          "quantity": {
-            "selected": {
-              "measure": {
-                "value": "5000",
-                "unit": "INR"
-              }
-            }
-          }
-        }
-      ],
-      "fulfillments": [
-        {
-          "id": "4540",
-          "type": "LUMPSUM",
-          "customer": {
-            "person": {
-              "id": "pan:ABCPQ3751Z"
-            }
+          "collected_by": "BPP",
+          "params": {
+            "amount": "5000",
+            "currency": "INR",
+            "source_bank_code": "ICIC0003428",
+            "source_bank_account_number": "25802580251193"
           },
-          "agent": {
-            "person": {
-              "id": "euin:E123456"
-            },
-            "organization": {
-              "creds": [
+          "type": "PRE_FULFILLMENT",
+          "tags": [
+            {
+              "descriptor": {
+                "name": "Payment Method",
+                "code": "PAYMENT_METHOD"
+              },
+              "list": [
                 {
-                  "id": "ARN-273858",
-                  "type": "ARN"
+                  "descriptor": {
+                    "code": "MODE"
+                  },
+                  "value": "NETBANKING"
                 }
               ]
             }
-          }
+          ]
         }
       ],
       "tags": [
@@ -88,15 +76,7 @@
             }
           ]
         }
-      ],
-      "xinput": {
-        "form": {
-          "id": "application_form"
-        },
-        "form_response": {
-          "submission_id": "db8be245-d7ea-46a9-9439-2689f2f5b83a"
-        }
-      }
+      ]
     }
   }
 }
